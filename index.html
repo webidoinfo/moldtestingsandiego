@@ -17,6 +17,9 @@
     <meta name="msapplication-TileColor" content="#2C3E50">
     <meta name="theme-color" content="#2C3E50">
     
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <!-- Open Graph Tags -->
     <meta property="og:title" content="Professional Mold Testing San Diego | Expert Mold Inspection Services">
     <meta property="og:description" content="Expert mold testing in San Diego by certified mold inspectors. Comprehensive mold inspection, air quality testing, and detailed reports.">
@@ -107,18 +110,28 @@
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="container header-container">
             <div class="logo">
-                <img src="images/logo.jpg" alt="Mold Testing San Diego Professional Services Logo" width="200" height="80">
+                <a href="/">
+                    <img src="images/logo.jpg" alt="Mold Testing San Diego Professional Services Logo" width="200" height="80">
+                </a>
             </div>
+            <button class="mobile-menu-button" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <nav>
                 <ul>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#process">Process</a></li>
                     <li><a href="#faq">FAQ</a></li>
-                    <li class="cta-button"><a href="tel:+18884500858">(888) 450-0858</a></li>
                 </ul>
+                <a href="tel:+18884500858" class="phone-button">
+                    <i class="fas fa-phone"></i>
+                    (888) 450-0858
+                </a>
             </nav>
         </div>
     </header>
@@ -289,5 +302,28 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const nav = document.querySelector('nav');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
+                
+                // Animate hamburger to X
+                this.classList.toggle('active');
+            });
+
+            // Close menu when clicking on a link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                    mobileMenuButton.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html> 
